@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('prayers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->text('content');
+            $table->boolean('is_answered')->default(false);
             $table->timestamps();
         });
     }
