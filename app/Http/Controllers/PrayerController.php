@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Prayer;
 use Illuminate\Http\Request;
 
 class PrayerController extends Controller
@@ -11,7 +12,11 @@ class PrayerController extends Controller
      */
     public function index()
     {
-        //
+        //Create a variable to hold all the products currently in the db
+        $prayers = Prayer::latest()->paginate(5);
+
+        //return the view that has all the products
+        return view('home', compact('prayers'))->with(request()->input('page'));
     }
 
     /**
@@ -19,7 +24,7 @@ class PrayerController extends Controller
      */
     public function create()
     {
-        //
+        return view('prayers.create');
     }
 
     /**
@@ -27,38 +32,62 @@ class PrayerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validating user input
+        $request ->validate([
+            'content' => 'required',
+        ]);
+
+        //creating a new product in db
+        Prayer::create($request->all()); 
+
+        //returning to home with a success message
+        return redirect()->route('home')
+                        ->with('success','Prayer recorded successfully'); 
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Prayer $prayer)
     {
-        //
+        return view('prayers.show', compact('prayer'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Prayer $prayer)
     {
-        //
+        return view('prayers.edit', compact('prayer'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Prayer $prayer)
     {
-        //
+        //validating user input
+        $request ->validate([
+            'content' => 'required',
+        ]);
+
+        //Updating a product in db
+        $prayer->update($request->all());
+
+        return redirect()->route('home')
+                        ->with('success','Prayer request updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Prayer $prayer)
     {
-        //
+        //Deleting product from the db
+        $prayer->delete();
+        
+        //Return to the product index view
+        return redirect()->route('home')
+                        ->with('success','Prayer deleted successfully');
     }
 }
