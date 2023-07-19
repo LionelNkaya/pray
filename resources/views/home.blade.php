@@ -26,7 +26,7 @@
         <div class="pull-left">
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('prayers.create') }}"> Record New Prayer Request</a>
+            <a class="btn btn-success" href="{{ route('prayers.create') }}">Record New Prayer Request</a>
         </div>
     </div>
 </div>
