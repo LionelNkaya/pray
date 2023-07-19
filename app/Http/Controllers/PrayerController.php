@@ -13,11 +13,11 @@ class PrayerController extends Controller
      */
     public function index()
     {
-        //Create a variable to hold all the products currently in the db
+        //Create a variable to hold all the prayers currently in the db
         $prayers = Prayer::latest()->paginate(5);
 
         //return the view that has all the products
-        return view('home', compact('prayers'))->with(request()->input('page'));
+        return view('home', compact('prayers'));
     }
 
     /**
