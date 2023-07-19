@@ -13,8 +13,11 @@ class PrayerController extends Controller
      */
     public function index()
     {
-        //Create a variable to hold all the prayers currently in the db
-        $prayers = Prayer::latest()->paginate(5);
+         // Retrieve the ID of the currently logged-in user
+        $userId = Auth::id();
+
+        //Create a variable to hold all the prayers of this user in the db
+        $prayers = Prayer::where('user_id', $userId)->latest()->paginate(5);
 
         //return the view that has all the products
         return view('home', compact('prayers'));
