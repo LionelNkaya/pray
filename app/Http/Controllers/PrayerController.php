@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Prayer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PrayerController extends Controller
 {
@@ -37,9 +38,11 @@ class PrayerController extends Controller
             'content' => 'required',
         ]);
 
-        //creating a new product in db
-        Prayer::create($request->all()); 
-
+        $prayer = new Prayer();
+        $prayer->user_id = Auth::id(); // Set the user_id to the currently authenticated user's ID
+        $prayer->content = $request->input('content');
+        $prayer->save();
+ 
         //returning to home with a success message
         return redirect()->route('home')
                         ->with('success','Prayer recorded successfully'); 
