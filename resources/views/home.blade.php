@@ -42,7 +42,7 @@
     <tr>
         <th>ID</th>
         <th>Date</th>
-        <th>Content</th>
+        <th>Prayer</th>
         <th width="280px">Action</th>
     </tr>
     @foreach ($prayers as $prayer)
