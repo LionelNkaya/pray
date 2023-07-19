@@ -47,7 +47,7 @@
     @foreach ($prayers as $prayer)
     <tr>
         <td>{{ $prayer->id }}</td>
-        <td>{{ $prayer->created_at }}</td>
+        <td>{{ $prayer->created_at->format('m/d/Y') }}</td>
         <td>{{ $prayer->content }}</td>
         <td>
             <form action="{{ route('prayers.destroy', $prayer->id) }}" method="POST">
