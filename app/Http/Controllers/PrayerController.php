@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Prayer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class PrayerController extends Controller
 {
@@ -16,8 +17,17 @@ class PrayerController extends Controller
          // Retrieve the ID of the currently logged-in user
         $userId = Auth::id();
 
-        //Create a variable to hold all the prayers of this user in the db
-        $prayers = Prayer::where('user_id', $userId)->latest()->paginate(5);
+        //Retrieve the appropriate date for the query. The date needs to be the same date (same day, same month):
+            $currentDay = Carbon::now()->format('d'); // Format: '01' to '31' 
+            $currentMonth = Carbon::now()->format('m'); // Format: '01' to '12'    
+
+        //Create a variable to hold all the prayers of this user in the db and the current month and day
+        //$prayers = Prayer::where('user_id', $userId)->latest()->paginate(5);
+        $prayers = Prayer::where('user_id', $userId)
+                 ->whereDay('created_at', $currentDay)
+                 ->whereMonth('created_at', $currentMonth)
+                 ->latest()
+                 ->paginate(5);
 
         //return the view that has all the products
         return view('home', compact('prayers'));

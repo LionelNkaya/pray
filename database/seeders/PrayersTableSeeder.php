@@ -15,7 +15,7 @@ class PrayersTableSeeder extends Seeder
     public function run(): void
     {
         // Use Carbon to create a specific date for the db
-        $date = Carbon::create(2022, 7, 20, 0, 33, 30);
+        $date = Carbon::create(2022, 7, 25, 0, 33, 30);
 
     // Sample data for prayers table with the specific date
     $prayers = [
