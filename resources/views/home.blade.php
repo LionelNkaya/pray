@@ -40,14 +40,12 @@
 
 <table class="table table-bordered">
     <tr>
-        <th>ID</th>
         <th>Date</th>
         <th>Prayer</th>
         <th width="280px">Action</th>
     </tr>
     @foreach ($prayers as $prayer)
     <tr>
-        <td>{{ $prayer->id }}</td>
         <td>{{ $prayer->created_at->format('m/d/Y') }}</td>
         <td>{{ $prayer->content }}</td>
         <td>
