@@ -31,7 +31,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Date:</strong>
-                    <input type="date" name="date" value="{{ $prayer->created_at }}" class="form-control" placeholder="Date">
+                    {{ date('Y-m-d', strtotime($prayer->created_at)) }}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
