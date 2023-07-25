@@ -16,7 +16,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Date:</strong>
-                {{ $prayer->created_at }}
+                {{ date('Y-m-d', strtotime($prayer->created_at)) }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
