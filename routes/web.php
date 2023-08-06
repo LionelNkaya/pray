@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PrayerController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,5 @@ Auth::routes();
 
 Route::get('/home', [PrayerController::class, 'index'])->name('home');
 Route::resource('prayers', PrayerController::class);
+
+Route::get('/profile', [ProfileController::class, 'showProfileModal'])->name('profile');

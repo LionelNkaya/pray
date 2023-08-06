@@ -29,7 +29,7 @@ class PrayerController extends Controller
                  ->latest()
                  ->paginate(5);
 
-        //return the view that has all the products
+        //return the view that has all the prayers
         return view('home', compact('prayers'));
     }
 
@@ -105,5 +105,10 @@ class PrayerController extends Controller
         //Return to the product index view
         return redirect()->route('home')
                         ->with('success','Prayer deleted successfully');
+    }
+
+    public function showProfileModal()
+    {
+        return view('profile');
     }
 }
