@@ -87,7 +87,7 @@ class PrayerController extends Controller
             'content' => 'required',
         ]);
 
-        //Updating a product in db
+        //Updating a prayer in db
         $prayer->update($request->all());
 
         return redirect()->route('home')
