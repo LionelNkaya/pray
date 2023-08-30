@@ -6,7 +6,9 @@
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Profile Page</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <a href="{{ route('home') }}"> 
+              <span aria-hidden="true">&times;</span>
+            </a>
           </button>
         </div>
         <div class="modal-body">
