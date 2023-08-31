@@ -1,3 +1,6 @@
+@extends('layouts.app') 
+
+@section('content')
 
 <!-- Modal -->
 <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -22,4 +25,5 @@
         </div>
       </div>
     </div>
-  </div> 
+  </div>
+  @endsection
