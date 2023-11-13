@@ -50,8 +50,8 @@
         <td>{{ $prayer->content }}</td>
         <td>
             <form action="{{ route('prayers.destroy', $prayer->id) }}" method="POST">
-                <a class="btn btn-info" href="{{ route('prayers.show',$prayer->id) }}">Show</a>
-                <a class="btn btn-primary" href="{{ route('prayers.edit',$prayer->id) }}">Edit</a>
+                <button type="submit" class="btn"><a class="btn btn-info" href="{{ route('prayers.show',$prayer->id) }}">Show</a></button>
+                <button type="submit" class="btn"><a class="btn btn-primary" href="{{ route('prayers.edit',$prayer->id) }}">Edit</a></button>
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Delete</button>
