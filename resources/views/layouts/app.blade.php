@@ -93,14 +93,15 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+            @auth
             <p>{{ Auth::user()->name }}</p>  
             <p>{{ Auth::user()->email }}</p>
             <p>Joined: {{ Auth::user()->created_at->format('F Y') }}</p>
             <p>Number of prayers recorded: {{ Auth::user()->prayers->count() }}</p>
+            @endauth
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
