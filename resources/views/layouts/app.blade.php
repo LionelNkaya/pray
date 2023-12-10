@@ -55,7 +55,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('profile') }}" data-toggle="modal" data-target="#profileModal">
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         {{ __('Profile') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -79,5 +79,32 @@
             @yield('content')
         </main>
     </div>
+
+   
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Profile</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>{{ Auth::user()->name }}</p>  
+            <p>{{ Auth::user()->email }}</p>
+            <p>Joined: {{ Auth::user()->created_at->format('F Y') }}</p>
+            <p>Number of prayers recorded: {{ Auth::user()->prayers->count() }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
