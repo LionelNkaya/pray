@@ -43,21 +43,21 @@
                     </thead>
                     <tbody>
                         @foreach ($prayers as $prayer)
-                            <tr>
-                                <td>{{ $prayer->created_at->format('m/d/Y') }}</td>
-                                <td>{{ $prayer->content }}</td>
-                                <td>
-                                    <div class="btn-group" role="group">
-                                        <a class="btn btn-info" href="{{ route('prayers.show',$prayer->id) }}">Show</a>
-                                        <a class="btn btn-primary" href="{{ route('prayers.edit',$prayer->id) }}">Edit</a>
-                                        <form action="{{ route('prayers.destroy', $prayer->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>{{ $prayer->created_at->format('m/d/Y') }}</td>
+                            <td>{{ $prayer->content }}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-info mr-1" href="{{ route('prayers.show',$prayer->id) }}">Show</a>
+                                    <a class="btn btn-primary mr-1" href="{{ route('prayers.edit',$prayer->id) }}">Edit</a>
+                                    <form action="{{ route('prayers.destroy', $prayer->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>
