@@ -48,8 +48,8 @@
                             <td>{{ $prayer->content }}</td>
                             <td>
                                 <div class="btn-group" role="group">
-                                    <a class="btn btn-info mr-1" href="{{ route('prayers.show',$prayer->id) }}">Show</a>
-                                    <a class="btn btn-primary mr-1" href="{{ route('prayers.edit',$prayer->id) }}">Edit</a>
+                                    <a class="btn btn-info rounded mr-1" href="{{ route('prayers.show',$prayer->id) }}">Show</a>
+                                    <a class="btn btn-primary rounded mx-1" href="{{ route('prayers.edit',$prayer->id) }}">Edit</a>
                                     <form action="{{ route('prayers.destroy', $prayer->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
