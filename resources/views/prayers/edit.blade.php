@@ -1,50 +1,48 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Edit Prayer Request</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Edit Prayer Request</div>
+
+                <div class="card-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <div class="form-group">
+                        <label>Date:</label>
+                        <p>{{ date('Y-m-d', strtotime($prayer->created_at)) }}</p>
+                    </div>
+
+                    <form action="{{ route('prayers.update',$prayer->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="form-group">
+                            <label for="content">Content:</label>
+                            <textarea class="form-control mt-2" id="content" name="content" rows="5" placeholder="Enter content">{{ $prayer->content }}</textarea>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('home') }}"> Back</a>
+            <div class="mt-3">
+                <a class="btn btn-secondary" href="{{ route('home') }}">Back</a>
             </div>
         </div>
     </div>
-
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-    <form action="{{ route('prayers.update',$prayer->id) }}" method="POST">
-        @csrf
-        @method('PUT')
-
-         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Date:</strong>
-                    {{ date('Y-m-d', strtotime($prayer->created_at)) }}
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Prayer:</strong>
-                    <textarea class="form-control" style="height:150px" name="content" placeholder="Content">{{ $prayer->content }}</textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <br>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-
-    </form>
+</div>
 @endsection
