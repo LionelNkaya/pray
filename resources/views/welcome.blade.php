@@ -58,7 +58,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <iframe width="100%" height="350" src="https://youtu.be/5tpiv5Xmuwg" title="Prayapp.us : your personal journaling application" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="100%" height="350" src="https://www.youtube.com/embed/5tpiv5Xmuwg?si=H_apUcbF0EOMKu08" title="Prayapp.us : your personal journaling application" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         <div class="modal-footer">     
           <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
