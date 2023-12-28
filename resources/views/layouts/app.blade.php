@@ -58,6 +58,9 @@
                                     <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         {{ __('Profile') }}
                                     </a>
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#supportModal">
+                                        {{ __('Support') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -102,6 +105,29 @@
       </div>
     </div>
   </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="supportModal" tabindex="-1" aria-labelledby="supportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="supportModalLabel">Support</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @auth
+                <p>Thank you for using Pray!</p>
+                <p>If you are experiencing any issue with the app, please contact me at: <a href="mailto:contact@lionelnkaya.com">contact@lionelnkaya.com</a></p>
+                <br>
+                <p>Pray is free for everyone. All your data on Pray is encrypted and will not be mined or sold. If you appreciate Pray, please consider supporting the app by becoming a partner on <a target="_blank" href="https://www.patreon.com/LionelNkaya">Patreon</a></p>
+                @endauth
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 </body>
 </html>
